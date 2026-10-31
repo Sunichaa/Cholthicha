@@ -1,0 +1,13 @@
+/* แถบเปลี่ยนหน้า (ใช้ร่วมกันทุกหน้า) */
+.pagination { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px; padding: 20px 0; }
+.pg-btn {
+    min-width: 36px; height: 36px; padding: 0 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid #e2e8f0; border-radius: 8px; background: #fff;
+    color: #475569; font-family: 'Sarabun', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.pg-btn:hover:not(:disabled):not(.active) { background: #f1f5f9; }
+.pg-btn.active { background: #2D7D46; border-color: #2D7D46; color: #fff; cursor: default; }
+.pg-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pg-gap { color: #94a3b8; padding: 0 4px; }

@@ -1,0 +1,6 @@
+/* Override admin theme สีชมพู/ม่วงสำหรับผู้จัดกิจกรรม */
+.organizer-layout .admin-navbar { background: linear-gradient(135deg, #fdf2f8, #fce7f3); border-bottom-color: #f9a8d4; }
+.organizer-layout .admin-sidebar { background: #2d1b4e; }
+.organizer-layout .sidebar-btn.active { background: #7c3aed; }
+.organizer-layout .sidebar-btn:hover { background: #3b1f6b; }
+.organizer-layout .brand-label { color: #7c3aed; }

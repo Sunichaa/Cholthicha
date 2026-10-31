@@ -1,0 +1,290 @@
+/* บังคับหน้าต่างให้ยึดครองหน้าจอเต็มร้อยเปอร์เซ็นต์ ปิดแผ่นหลังมิดชิด */
+.fullscreen-auth-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* ─── ส่วนควบคุมแถบเมนูด้านบน (Top Navbar) ─── */
+/* ใช้คลาส .navbar / .nav-inner จาก Navbar.css ให้เหมือนหน้าแรก (ความสูง, ความกว้าง, สี, เงา) */
+.auth-top-navbar {
+  flex-shrink: 0;
+}
+
+/* ดันปุ่มหน้าแรกไปชิดขวา เหมือนกลุ่มปุ่มของ navbar หน้าแรก */
+.auth-top-navbar .btn-home-nav {
+  margin-left: auto;
+}
+
+/* ─── จัดระเบียบชุดปุ่มกดฝั่งขวา (ขนานเป็นแนวนอนเดียวกับโลโก้) ─── */
+.auth-navbar-right-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* เส้นคั่นกลางระหว่างปุ่มสลับโหมดและปุ่มหน้าแรก */
+.nav-divider-bar {
+  width: 1px;
+  height: 18px;
+  background-color: #cbd5e1;
+  margin: 0 4px;
+}
+
+/* ปุ่มข้อความทั่วไป (สมัครสมาชิก) */
+.nav-switch-tab-btn {
+  background: transparent;
+  border: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.nav-switch-tab-btn:hover,
+.tab-active {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #0f172a;
+}
+
+/* ปุ่มไฮไลต์สีน้ำเงิน (เข้าสู่ระบบ) */
+.nav-switch-tab-btn-blue {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.nav-switch-tab-btn-blue:hover,
+.tab-active-blue {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* ปุ่มกดรูปบ้าน "หน้าแรก" ดึงคลาสเดิมมาจัดกึ่งกลางแนวตั้ง */
+.auth-top-navbar .btn-home-nav {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  font-family: inherit;
+}
+
+.auth-top-navbar .btn-home-nav:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* ─── พื้นที่การ์ดตรงกลาง ─── */
+.auth-center-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.auth-card-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* คุมความกว้างตามประเภทความเหมาะสมของฟอร์ม */
+.login-card-width { width: 100%; max-width: 450px; }
+.register-card-width { width: 100%; max-width: 520px; }
+
+.auth-card-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ─── การจัดการระบบฟอร์มและป้ายกำกับ (*) ─── */
+.auth-core-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-item-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label-wrapper-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.req {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.form-item-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* อินพุตและดรอปดาวน์ตามโมเดลรูปที่ 3 */
+.auth-dropdown-select,
+.auth-core-form input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #334155;
+}
+
+.auth-dropdown-select:focus,
+.auth-core-form input:focus {
+  border-color: #7ba2cf;
+  box-shadow: 0 0 0 3px rgba(123, 162, 207, 0.15);
+}
+
+/* ช่องไอคอนซ่อนรหัสผ่าน */
+.input-with-icon-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.btn-toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+}
+
+/* ปุ่มกดยืนยันโทนสีฟ้าพาสเทลตามรูปภาพของลูกค้า */
+.btn-blue-submit {
+  background-color: #7ca2ce; /* สีฟ้าสไตล์รูปภาพที่แนบมา */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.15s;
+}
+
+.btn-blue-submit:hover {
+  background-color: #648bb8;
+}
+
+.form-error-msg {
+  color: #ef4444;
+  font-size: 14px;
+  margin: 0;
+}
+
+.switch-auth-mode-text {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 12px;
+}
+
+.btn-link {
+  background: transparent;
+  border: none;
+  color: #1e3a8a;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ─── สไตล์กล่องกรอกรหัส OTP ─── */
+.otp-view-wrapper {
+  text-align: center;
+}
+
+.otp-subheading-text {
+  font-size: 14px;
+  color: #475569;
+  margin-top: -14px;
+  margin-bottom: 24px;
+}
+
+.otp-fields-row-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.otp-single-box {
+  width: 48px;
+  height: 52px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+}
+
+.otp-single-box:focus {
+  border-color: #7ca2ce;
+}
+
+.otp-resend-footer-text {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 16px;
+}
+
+.btn-link-resend {
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}

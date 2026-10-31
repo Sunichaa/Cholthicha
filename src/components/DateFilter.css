@@ -1,0 +1,19 @@
+/* ตัวกรองวัน / เดือน / ปี (ใช้ร่วมกันหลายหน้า) */
+.date-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.df-select { position: relative; display: flex; align-items: center; }
+.df-select select {
+    appearance: none; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 8px 30px 8px 12px; font-family: 'Sarabun', sans-serif; font-size: 14px; color: #334155;
+    cursor: pointer; outline: none;
+}
+.df-select select:focus { border-color: #2D7D46; }
+.df-arrow { position: absolute; right: 10px; color: #64748b; pointer-events: none; }
+.df-clear {
+    display: inline-flex; align-items: center; gap: 4px; padding: 8px 12px;
+    border: none; border-radius: 10px; background: #fee2e2; color: #dc2626;
+    font-family: 'Sarabun', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.df-clear:hover { background: #fecaca; }
+
+/* กลุ่มเครื่องมือด้านขวาของแถบหัวตาราง: ตัวกรองวันที่ + ช่องค้นหา */
+.toolbar-tools { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }

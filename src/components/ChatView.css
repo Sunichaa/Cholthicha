@@ -1,0 +1,301 @@
+/* คลาสคลุมเพื่อจัดระยะขอบให้สอดคล้องกับภาพหน้าจอ */
+.chat-viewport-wrapper {
+    padding: 24px;
+    box-sizing: border-box;
+    /* คำนวณความสูง: 100vh ลบด้วยความสูงโดยประมาณของ Navbar ด้านบน (60px-70px) */
+    height: calc(100vh - 75px); 
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-main-container {
+    display: flex;
+    background-color: #ffffff;
+    flex: 1; /* ขยายตัวให้เต็มพื้นที่ viewport สัดส่วนที่เหลือ */
+    /* font-family: 'Kanit', sans-serif; */
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    height: 100%; /* ล็อกความสูงคอนเทนเนอร์หลัก */
+}
+
+/* Sidebar ส่วนรายชื่อด้านซ้าย */
+.chat-sidebar {
+    width: 320px;
+    border-right: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.sidebar-search-box {
+    padding: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sidebar-title {
+    margin: 0 0 14px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrapper .icon-search {
+    position: absolute;
+    left: 12px;
+    color: #94a3b8;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 9px 12px 9px 36px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+    outline: none;
+    background: #f8fafc;
+}
+
+/* ล็อกพื้นที่รายชื่อให้เลื่อนเมาส์ภายในนี้ได้เมื่อรายชื่อยาวเกินไป */
+.contacts-list-wrapper {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.contact-item-row {
+    display: flex;
+    padding: 14px 20px;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 1px solid #f8fafc;
+}
+
+.contact-item-row:hover {
+    background-color: #f8fafc;
+}
+
+.contact-item-row.active {
+    background-color: #eff6ff;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.avatar-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.online-indicator-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 11px;
+    height: 11px;
+    background-color: #22c55e;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.contact-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.contact-name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-name-row h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.msg-time {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.contact-preview-msg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-preview-msg p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+}
+
+/* ข้อความล่าสุดที่ยังไม่ได้เปิดอ่าน (มาจากอีกฝ่าย) ให้เด่นด้วยตัวหนังสือสีเข้ม */
+.contact-preview-msg p.unread {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.unread-badge {
+    background: #ef4444;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Chat Window ส่วนกล่องแชตด้านขวา */
+.chat-window-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.chat-window-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #0252a1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-window-header h4 { margin: 0; font-size: 15px; font-weight: 600; color: #1e293b; }
+.status-text { margin: 0; font-size: 12px; }
+
+/* สั่งลื่นไหลเฉพาะในห้องแชต และดัน Footer ไว้ขอบล่างเสมอ */
+.chat-messages-body {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto; 
+    background-color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* แชตบับเบิ้ล */
+.message-bubble-row {
+    display: flex;
+    width: 100%;
+}
+
+.message-bubble-row.incoming { justify-content: flex-start; }
+.message-bubble-row.outgoing { justify-content: flex-end; }
+
+.message-content-box {
+    max-width: 65%;
+    padding: 12px 16px;
+    border-radius: 16px;
+}
+
+.incoming .message-content-box {
+    background: #ffffff;
+    color: #334155;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.outgoing .message-content-box {
+    background: #0252a1; /* สีฟ้าน้ำเงินพรีเมียมตามปุ่มส่ง */
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+}
+
+.message-text {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.message-time-stamp {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.incoming .message-time-stamp { color: #94a3b8; }
+.outgoing .message-time-stamp { color: #93c5fd; }
+.icon-read { color: #38bdf8; }
+
+/* ฟอร์มส่งข้อความด้านล่าง (อยู่กับที่ ไม่จมหน้าจอ) */
+.chat-input-footer-form {
+    padding: 16px 24px;
+    border-top: 1px solid #edf2f7;
+    display: flex;
+    gap: 12px;
+    background: #fff;
+    align-items: center;
+}
+
+.chat-input-footer-form input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    font-size: 14px;
+    background: #fff;
+}
+
+.chat-input-footer-form input:focus {
+    border-color: #0252a1;
+}
+
+.btn-send-message {
+    padding: 12px 20px;
+    background: #0252a1;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-send-message:hover {
+    background: #013e7a;
+}   

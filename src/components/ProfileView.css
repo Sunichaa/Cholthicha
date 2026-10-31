@@ -1,0 +1,221 @@
+.profile-viewport-container {
+    padding: 30px;
+
+    background-color: #f8fafc;
+    min-height: calc(100vh - 75px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-main-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+/* ส่วนหัวโครงสร้างรูปโปรไฟล์ */
+.profile-hero-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.profile-avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6b94c4 0%, #0252a1 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(2, 82, 161, 0.2);
+}
+
+.profile-hero-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-hero-info h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.profile-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #eff6ff;
+    color: #1e40af;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.profile-divider-line {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 0 0 28px 0;
+}
+
+/* จัดการ Grid ฝั่งซ้าย-ขวา */
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+    .profile-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-info-item label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.required-star {
+    color: #ef4444;
+}
+
+.info-value-box {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+.info-value-box.highlight-status {
+    color: #1e293b;
+}
+
+/* ช่องเบอร์โทรศัพท์ยาวเต็มความกว้าง */
+.full-width-field {
+    grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+    .full-width-field {
+        grid-column: span 1;
+    }
+}
+
+/* พื้นที่ปุ่มควบคุม */
+.profile-actions-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.btn-edit-profile-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background-color: #7ba4d4; /* คงโทนสีฟ้าพรีเมียมตามดีไซน์หลักของคุณ */
+    color: #1a365d;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.btn-edit-profile-submit:hover {
+    background-color: #6b94c4;
+    transform: translateY(-1px);
+}
+
+.btn-edit-profile-submit:active {
+    transform: translateY(0);
+}
+
+/* คลาสสำหรับช่อง Input โหมดแก้ไข */
+.info-input-field {
+    background-color: #ffffff;
+    border: 1px solid #3b82f6; /* ไฮไลท์กรอบสีฟ้าเมื่อกดแก้ไข */
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 14px;
+    color: #1e293b;
+
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.loading-text {
+    font-size: 16px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* ปุ่มโหมดแก้ไขและยกเลิก */
+.btn-profile-cancel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-profile-cancel:hover { background-color: #e2e8f0; }
+
+.btn-profile-save {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    background-color: #22c55e; /* สีเขียวสำหรับปุ่มเซฟ */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-profile-save:hover { background-color: #16a34a; }

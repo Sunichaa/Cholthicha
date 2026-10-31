@@ -1,0 +1,97 @@
+.home { min-height: 100vh; }
+
+.main-content {
+  max-width: 1200px; margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.section-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; margin-bottom: 28px; flex-wrap: wrap;
+}
+.section-title { font-size: 24px; font-weight: 800; color: var(--gray-800); }
+.section-sub { font-size: 14px; color: var(--gray-400); margin-top: 2px; }
+
+
+.filter-icon { color: var(--gray-400); }
+.cat-btn {
+  background: var(--gray-100); color: var(--gray-600); border: none;
+  padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+  font-family: var(--font); transition: all 0.2s;
+}
+.cat-btn:hover { background: var(--green-pale); color: var(--green); }
+.cat-btn.active { background: var(--green); color: white; font-weight: 600; }
+
+.search-info {
+  background: var(--blue-pale); color: var(--blue);
+  padding: 10px 16px; border-radius: 8px; font-size: 14px;
+  margin-bottom: 20px; border-left: 3px solid var(--blue);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.card-skeleton {
+  background: var(--gray-100); border-radius: var(--radius-lg);
+  height: 420px; animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.error-box {
+  background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 12px;
+  padding: 20px 24px; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px; margin-bottom: 24px;
+  color: var(--red); font-size: 14px;
+}
+.retry-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--red); color: white; border: none;
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  font-family: var(--font); white-space: nowrap;
+}
+
+.empty-state {
+  text-align: center; padding: 60px 20px;
+  color: var(--gray-400); font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .section-header { flex-direction: column; }
+  .cards-grid { grid-template-columns: 1fr; }
+}
+
+
+/* สไตล์การจัดวางช่อง Dropdown */
+.filter-row-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--green-pale) !important;
+  padding: 6px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px; /* ทำมุมโค้งมน */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* แต่งตัวกล่อง Dropdown (Select Tag) */
+.category-dropdown-select {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #4a5568;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  padding-right: 8px;
+}
+
+/* เพิ่ม Effect เล็กน้อยเมื่อนำเมาส์มาวาง */
+.filter-row-dropdown:hover {
+  border-color: #cbd5e1;
+}
